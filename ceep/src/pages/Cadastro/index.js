@@ -1,5 +1,6 @@
 import Input from "../../componentes/Inputs"
 import { useState } from "react"
+import axios from "axios";
 import { Inputs, Botao, Legenda } from "./style.js";
 import { Link } from "react-router-dom";
 import Apertar from "../../componentes/Botao";
