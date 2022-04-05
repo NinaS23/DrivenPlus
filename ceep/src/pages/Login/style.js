@@ -4,13 +4,14 @@ export {
     Inputs,
     Titulo,
     Legenda,
-    Botao
+    Botao,
+    Input
 }
 
-const Inputs = styled.div`
+const Inputs = styled.form`
    display: flex; 
    flex-direction:column;
-   justify-content:center
+   justify-content:center;
    align-items: center;
    margin-top:50%;
 
@@ -27,4 +28,7 @@ margin-top:4%;
 
 const Botao = styled.button`
 background-color:Pink;
+`
+const Input = styled.input`
+ width:200px;
 `

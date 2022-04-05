@@ -1,5 +1,5 @@
-export default function Input({legenda , value}){
+export default function Input({legenda}){
     return(
-        <input type="text" placeholder={legenda} value={value}/>
+        <input type="text" placeholder={legenda}/>
     )
 }
