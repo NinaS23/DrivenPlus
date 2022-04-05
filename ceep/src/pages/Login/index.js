@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "axios";
 import { Inputs, Titulo, Legenda, Botao } from "./style.js";
 import { Link } from "react-router-dom";
 import Input from "../../componentes/Inputs"
@@ -7,6 +8,24 @@ export default function TelaLogin() {
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
     console.log(senha, email)
+    
+     function EnviarValue(e){
+        e.preventDefault()
+        const dados ={
+            email:email,
+            password: senha
+        }
+        const enviarInfo = axios.post("https://mock-api.driven.com.br/api/v4/driven-plus/auth/login", dados)
+        enviarInfo.then(Sucesso)
+        enviarInfo.catch(Fracasso)
+     }
+     function Sucesso(resposta) {
+        console.log("foi")
+    }
+    function Fracasso(err) {
+        console.log("deu xabu!!!")
+    }
+
     return (
         <>
 
@@ -25,6 +44,7 @@ export default function TelaLogin() {
 
                 <Botao>
                     <Apertar
+                        onClick={EnviarValue} 
                         clicar={"Entrar"} />
                 </Botao>
 
