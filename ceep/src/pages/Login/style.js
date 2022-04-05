@@ -3,7 +3,8 @@ import styled from "styled-components"
 export {
     Inputs,
     Titulo,
-    Legenda
+    Legenda,
+    Botao
 }
 
 const Inputs = styled.div`
@@ -22,4 +23,8 @@ const Legenda = styled.h5`
 margin:0 auto;
 margin-top:4%;
 
+`
+
+const Botao = styled.button`
+background-color:Pink;
 `
