@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Inputs, Titulo, Legenda, Botao } from "./style.js";
+import { Link } from "react-router-dom";
 import Input from "../../componentes/Inputs"
 import Apertar from "../../componentes/Botao/index.js";
 export default function TelaLogin() {
@@ -21,11 +22,15 @@ export default function TelaLogin() {
                     value={senha}
                     onChange={(e) => setSenha(e.target.value)}
                 />
+
                 <Botao>
                     <Apertar
                         clicar={"Entrar"} />
                 </Botao>
-                <Legenda>Não possuí uma conta? Cadastre-se</Legenda>
+
+                <Link to={`/sign-up`}>
+                    <Legenda>Não possuí uma conta? Cadastre-se</Legenda>
+                </Link>
             </Inputs>
         </>
     )

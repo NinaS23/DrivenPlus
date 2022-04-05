@@ -1,6 +1,7 @@
 import Input from "../../componentes/Inputs"
 import { useState } from "react"
 import { Inputs, Botao, Legenda } from "./style.js";
+import { Link } from "react-router-dom";
 import Apertar from "../../componentes/Botao";
 export default function TelaCadastro() {
 
@@ -44,10 +45,11 @@ export default function TelaCadastro() {
                         clicar={"Cadastrar"}
                     />
                 </Botao>
-
-                <Legenda>
-                    Já possuí uma conta? Entre
-                </Legenda>
+                <Link to={`/`}>
+                    <Legenda>
+                        Já possuí uma conta? Entre
+                    </Legenda>
+                </Link>
             </Inputs>
 
         </>
