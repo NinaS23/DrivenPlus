@@ -32,10 +32,6 @@ export default function TelaLogin() {
 
     return (
         <>
-        <Card
-         img={Logo}
-         valor="R$ 39,99"
-        />
             <Inputs   onSubmit={EnviarValue}>
                 <Titulo>DRIVEN</Titulo>
                 <Input
