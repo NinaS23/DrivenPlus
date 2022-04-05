@@ -1,7 +1,8 @@
-import Input from "../../componentes/Inputs"
+/* import Input from "../../componentes/Inputs" */
+
 import { useState } from "react"
 import axios from "axios";
-import { Inputs, Botao, Legenda } from "./style.js";
+import { Inputs, Botao, Legenda, Input } from "./style.js";
 import { Link } from "react-router-dom";
 import Apertar from "../../componentes/Botao";
 export default function TelaCadastro() {
@@ -21,6 +22,8 @@ export default function TelaCadastro() {
             password: senha
 
         }
+
+        console.log(dados)
         const enviarInfo = axios.post("https://mock-api.driven.com.br/api/v4/driven-plus/auth/sign-up", dados)
         enviarInfo.then(Sucesso)
         enviarInfo.catch(Fracasso)
@@ -31,44 +34,43 @@ export default function TelaCadastro() {
     function Fracasso(err) {
         console.log("deu xabu!!!")
     }
-
-
+    console.log(senha,CPF,nome,email)
     return (
         <>
             <Inputs>
                 <Input
-                    legenda={"Nome"}
+                    placeholder="Nome"
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
 
                 />
                 <Input
-                    legenda={"CPF"}
+                    placeholder="CPF"
                     value={CPF}
                     onChange={(e) => setCPF(e.target.value)}
 
                 />
                 <Input
-                    legenda={"email"}
+                   placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
 
                 />
                 <Input
-                    legenda={"Senha"}
+                   placeholder="Senha"
                     value={senha}
                     onChange={(e) => setSenha(e.target.value)}
 
                 />
 
-                <Botao>
+                <Botao onClick={EnviarValue}>
                     <Apertar
-                        onClick={EnviarValue}
+
                         clicar={"Cadastrar"}
                     />
                 </Botao>
                 <Link to={`/`}>
-                    <Legenda>
+                    <Legenda  style={{ textDecoration: "none", color: "black" }}>
                         Já possuí uma conta? Entre
                     </Legenda>
                 </Link>

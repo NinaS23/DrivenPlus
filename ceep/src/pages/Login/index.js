@@ -1,11 +1,10 @@
 import { useState } from "react"
 import axios from "axios";
-import { Inputs, Titulo, Legenda, Botao , Input } from "./style.js";
+import { Inputs, Titulo, Legenda, Botao, Input } from "./style.js";
 import { Link } from "react-router-dom";
 /* import Input from "../../componentes/Inputs" */
 import Apertar from "../../componentes/Botao/index.js";
-import Card from "../../componentes/Card/index.js";
-import Logo from "../../assets/Group 2.png"
+
 
 export default function TelaLogin() {
     const [email, setEmail] = useState("")
@@ -32,26 +31,25 @@ export default function TelaLogin() {
 
     return (
         <>
-            <Inputs   onSubmit={EnviarValue}>
+            <Inputs onSubmit={EnviarValue}>
                 <Titulo>DRIVEN</Titulo>
                 <Input
-                    legenda={"email"}
+                   placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <Input
-                    legenda={"senha"}
+                   placeholder="Senha"
                     value={senha}
                     onChange={(e) => setSenha(e.target.value)}
                 />
 
                 <Botao>
                     <Apertar
-                        
                         clicar={"Entrar"} />
                 </Botao>
 
-                <Link style={{textDecoration:"none" ,color:"black"}} to={`/sign-up`}>
+                <Link style={{ textDecoration: "none", color: "black" }} to={`/sign-up`}>
                     <Legenda>Não possuí uma conta? Cadastre-se</Legenda>
                 </Link>
             </Inputs>
