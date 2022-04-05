@@ -25,7 +25,7 @@ export default function TelaLogin() {
         console.log("foi")
     }
     function Fracasso(err) {
-        console.log("deu xabu!!!")
+       alert("email ou senha incorretos")
     }
     console.log(senha, email)
 

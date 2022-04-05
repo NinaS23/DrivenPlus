@@ -32,7 +32,7 @@ export default function TelaCadastro() {
         console.log("foi")
     }
     function Fracasso(err) {
-        console.log("deu xabu!!!")
+       alert("Não foi possivel realizar seu cadastro , tente novamente")
     }
     console.log(senha,CPF,nome,email)
     return (
