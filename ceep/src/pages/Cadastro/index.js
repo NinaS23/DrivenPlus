@@ -11,6 +11,26 @@ export default function TelaCadastro() {
     const [senha, setSenha] = useState("")
     console.log(senha, CPF, nome, email)
 
+    function EnviarValue(e) {
+        e.preventDefault()
+        const dados = {
+            email: email,
+            name: nome,
+            cpf: CPF,
+            password: senha
+
+        }
+        const enviarInfo = axios.post("https://mock-api.driven.com.br/api/v4/driven-plus/auth/sign-up", dados)
+        enviarInfo.then(Sucesso)
+        enviarInfo.catch(Fracasso)
+    }
+    function Sucesso(resposta) {
+        console.log("foi")
+    }
+    function Fracasso(err) {
+        console.log("deu xabu!!!")
+    }
+
 
     return (
         <>
@@ -42,6 +62,7 @@ export default function TelaCadastro() {
 
                 <Botao>
                     <Apertar
+                        onClick={EnviarValue}
                         clicar={"Cadastrar"}
                     />
                 </Botao>

@@ -8,18 +8,18 @@ export default function TelaLogin() {
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
     console.log(senha, email)
-    
-     function EnviarValue(e){
+
+    function EnviarValue(e) {
         e.preventDefault()
-        const dados ={
-            email:email,
+        const dados = {
+            email: email,
             password: senha
         }
         const enviarInfo = axios.post("https://mock-api.driven.com.br/api/v4/driven-plus/auth/login", dados)
         enviarInfo.then(Sucesso)
         enviarInfo.catch(Fracasso)
-     }
-     function Sucesso(resposta) {
+    }
+    function Sucesso(resposta) {
         console.log("foi")
     }
     function Fracasso(err) {
@@ -44,7 +44,7 @@ export default function TelaLogin() {
 
                 <Botao>
                     <Apertar
-                        onClick={EnviarValue} 
+                        onClick={EnviarValue}
                         clicar={"Entrar"} />
                 </Botao>
 
