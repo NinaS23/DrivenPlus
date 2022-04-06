@@ -1,33 +1,54 @@
 import { Titulo } from "./style.js";
-import { useEffect, useState } from "react";
+import { useEffect, useState , useContext} from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Card from "../../componentes/Card"
-import logo from "../../assets/Group 1.png"
-import logoAmarela from "../../assets/Group 2.png"
-import logoVerde from "../../assets/Group 3.png"
+import UserContext from "../../contexts/context.js";
+
 export default function Subscription() {
     const [planos, setPlanos] = useState([])
+    const {token} = useContext(UserContext)
+    console.log(token)
+    const config = {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    }
 
+    useEffect(() => {
+
+        const requisicao = axios.get("https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions/memberships", config)
+        requisicao.then(Sucesso)
+        requisicao.catch(Fracasso)
+
+        function Sucesso(resp) {
+            console.log(resp)
+            setPlanos(resp.data)
+        }
+        function Fracasso(erro) {
+            console.log(erro)
+        }
+    }, [])
+
+    console.log(planos)
     return (
         <>
-            <Link to={`/subscription2`} >
-                <Titulo>Escolha Seu Plano</Titulo>
-            </Link>
-            <Card
-                img={logo}
-                valor="R& 39,99"
-            />
 
-            <Card
-                img={logoAmarela}
-                valor="R& 39,99"
-            />
+            <Titulo>Escolha Seu Plano</Titulo>
 
-            <Card
-                img={logoVerde}
-                valor="R& 39,99"
-            />
+
+            {planos.map((element) => {
+                return (
+                    <Link to={`/subscription/${element.id}`} >
+                        <Card
+                            img={element.image}
+                            valor={(element.price).toLocaleString('pt-br')}
+                            alt={element.image}
+                            key={element.id}
+                        />
+                    </Link>
+                )
+            })}
 
         </>
     )

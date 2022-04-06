@@ -11,7 +11,9 @@ export{
     AfastarBorda,
     InputMenor,
     LadoALadoInput,
-    Apertar
+    Apertar,
+    Body,
+    Esconder
 }
 const CentroLogo= styled.div`
 display: flex;
@@ -85,4 +87,15 @@ height: 52px;
 border-style:none;
 border-radius: 8px;
 margin-top: 12px;
+`
+
+const Body = styled.div`
+background: rgba(0, 0, 0, 0.7);
+background-color: #000000B2;
+height: 100vh;
+
+
+`
+const Esconder = styled.img`
+display: none;
 `

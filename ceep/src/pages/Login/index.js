@@ -1,17 +1,16 @@
-import { useState} from "react"
+import { useState , useContext} from "react"
 import axios from "axios";
 import { Inputs, Titulo, Legenda, Botao, Input } from "./style.js";
 import { Link ,useNavigate } from "react-router-dom";
 /* import Input from "../../componentes/Inputs" */
 import Apertar from "../../componentes/Botao/index.js";
-
+import UserContext from "../../contexts/context.js";
 
 export default function TelaLogin() {
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
-    const [token , setToken] = useState(null)
     const navigate = useNavigate();
-
+    const {setToken} = useContext(UserContext)
     function EnviarValue(e) {
         e.preventDefault()
         const dados = {
@@ -26,12 +25,14 @@ export default function TelaLogin() {
     function Sucesso(resposta) {
         console.log(resposta.data)
         navigate('/subscriptions');
+        setToken(resposta.data.token)
 
     }
     function Fracasso(err) {
         alert("email ou senha incorretos")
     }
     console.log(senha, email)
+    
 
     return (
         <>
