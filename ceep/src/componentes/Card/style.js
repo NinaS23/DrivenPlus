@@ -15,6 +15,8 @@ border-radius: 12px;
 width: 290px;
 height: 180px;
 margin:0 auto;
+margin-top:14px;
+
 `
 const CardImg = styled.img`
 margin-left: 16px;

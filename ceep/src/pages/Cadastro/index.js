@@ -3,7 +3,7 @@
 import { useState } from "react"
 import axios from "axios";
 import { Inputs, Botao, Legenda, Input } from "./style.js";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import Apertar from "../../componentes/Botao";
 export default function TelaCadastro() {
 
@@ -11,6 +11,7 @@ export default function TelaCadastro() {
     const [CPF, setCPF] = useState("")
     const [nome, setNome] = useState("")
     const [senha, setSenha] = useState("")
+    const navigate =useNavigate();
     console.log(senha, CPF, nome, email)
 
     function EnviarValue(e) {
@@ -29,7 +30,8 @@ export default function TelaCadastro() {
         enviarInfo.catch(Fracasso)
     }
     function Sucesso(resposta) {
-        console.log("foi")
+    
+        navigate('/')
     }
     function Fracasso(err) {
        alert("Não foi possivel realizar seu cadastro , tente novamente")

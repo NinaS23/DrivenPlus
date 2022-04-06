@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useState} from "react"
 import axios from "axios";
 import { Inputs, Titulo, Legenda, Botao, Input } from "./style.js";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate } from "react-router-dom";
 /* import Input from "../../componentes/Inputs" */
 import Apertar from "../../componentes/Botao/index.js";
 
@@ -9,6 +9,8 @@ import Apertar from "../../componentes/Botao/index.js";
 export default function TelaLogin() {
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
+    const [token , setToken] = useState(null)
+    const navigate = useNavigate();
 
     function EnviarValue(e) {
         e.preventDefault()
@@ -22,24 +24,28 @@ export default function TelaLogin() {
         enviarInfo.catch(Fracasso)
     }
     function Sucesso(resposta) {
-        console.log("foi")
+        console.log(resposta.data)
+        navigate('/subscriptions');
+
     }
     function Fracasso(err) {
-       alert("email ou senha incorretos")
+        alert("email ou senha incorretos")
     }
     console.log(senha, email)
 
     return (
         <>
             <Inputs onSubmit={EnviarValue}>
-                <Titulo>DRIVEN</Titulo>
+                <Link to={`/subscriptions`}>
+                    <Titulo>DRIVEN</Titulo>
+                </Link>
                 <Input
-                   placeholder="Email"
+                    placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <Input
-                   placeholder="Senha"
+                    placeholder="Senha"
                     value={senha}
                     onChange={(e) => setSenha(e.target.value)}
                 />
