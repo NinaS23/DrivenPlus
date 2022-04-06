@@ -6,7 +6,12 @@ export{
     Logo,
     Centralizar,
     Legenda,
-    LadoALado
+    LadoALado,
+    Input,
+    AfastarBorda,
+    InputMenor,
+    LadoALadoInput,
+    Apertar
 }
 const CentroLogo= styled.div`
 display: flex;
@@ -41,6 +46,43 @@ background-color: pink;
 const LadoALado = styled.div`
 display: flex;
 
+`
+
+const Input = styled.input`
+ width:299px;
+ height: 52px;
+ margin-top: 8px;
+ border-style:none;
+`
+
+const AfastarBorda = styled.div`
+display: flex;
+flex-direction:column;
+justify-content: center;
+align-items:center;
+margin-top: 5%;
+border-radius: 8px;
 
 
+`
+const InputMenor = styled.input`
+width: 149px;
+height: 52px;
+border-radius: 8px;
+border-style:none;
+
+`
+const LadoALadoInput = styled.div`
+display: flex;
+margin-top:8px;
+
+
+`
+const Apertar = styled.button`
+background-color: #FF4791;
+width: 299px;
+height: 52px;
+border-style:none;
+border-radius: 8px;
+margin-top: 12px;
 `
