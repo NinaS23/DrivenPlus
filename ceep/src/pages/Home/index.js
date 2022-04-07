@@ -3,6 +3,7 @@ import UserContext from "../../contexts/context.js";
 import { LogoSuperior, ImgUser, Separar, NomeUser, Clicar, Action, MeioScreen, FinalScreen } from "./style.js";
 import Logo1 from "../../assets/Group 1.png";
 import FotoUser from "../../assets/Vector.png"
+import { Link } from "react-router-dom";
 
 export default function Home() {
     const { token } = useContext(UserContext)
@@ -14,10 +15,12 @@ export default function Home() {
     }
     function Deletar() {
         fetch('https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions', {
-            method: 'DELETE', 
-            
+            method: 'DELETE',
+
         });
     }
+
+
     return (
         <>
             <Separar>
@@ -31,7 +34,9 @@ export default function Home() {
                 <Clicar><Action>Aulas bônus de tech</Action></Clicar>
                 <Clicar><Action>Mentorias personalizadas</Action></Clicar>
                 <FinalScreen>
-                    <Clicar><Action>Mudar plano</Action></Clicar>
+                    <Link to={"/subscriptions"} >
+                        <Clicar><Action>Mudar plano</Action></Clicar>
+                    </Link>
                     <Clicar style={{ backgroundColor: "#FF4747" }} onClick={Deletar}><Action>Cancelar plano</Action></Clicar>
                 </FinalScreen>
             </MeioScreen>

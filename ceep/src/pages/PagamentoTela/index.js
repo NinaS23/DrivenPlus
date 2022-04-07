@@ -25,12 +25,12 @@ export default function PagamentoTela() {
         }
     }
 
-    const { idPlano } = useParams();
-    console.log("id: " + idPlano);
+    const { planoId } = useParams();
+    console.log("id: " + planoId);
 
     useEffect(() => {
 
-        const requisicao = axios.get(`https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions/memberships/${idPlano}`, config)
+        const requisicao = axios.get(`https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions/memberships/${planoId}`, config)
         requisicao.then(Sucesso)
         requisicao.catch(Fracasso)
 
