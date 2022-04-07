@@ -2,8 +2,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams , Link , useNavigate} from 'react-router-dom';
 import axios from "axios";
-import { CentroLogo, IMG, Logo, Centralizar, Legenda, LadoALado, Input, AfastarBorda, InputMenor, LadoALadoInput, Apertar, Body } from "./style.js";
-import logoVerde from "../../assets/Group 1.png"
+import { CentroLogo, IMG, Logo, Centralizar, Legenda, LadoALado, Input, AfastarBorda, InputMenor, LadoALadoInput, Apertar, LogoTitle , SetaImg} from "./style.js";
 import lista from "../../assets/lista.png"
 import dinheiro from "../../assets/grana.png";
 import UserContext from "../../contexts/context.js";
@@ -70,27 +69,29 @@ function EnviarPlano(){
     return (
         <>
             <Link to={`/subscriptions`}>
-                <Logo src={Seta} alt="letra D" />
+                <SetaImg src={Seta} alt="letra D" />
+              
             </Link>
 
             <CentroLogo style={{ marginTop: "30%", marginBottom: "5%" }} >
-                <Logo src={info.image} alt="letra D" />
+                <Logo  src={info.image} alt="letra D" />
+                <LogoTitle style={{marginBottom:"5%"}}>Driven Plus</LogoTitle>
             </CentroLogo>
             <Centralizar>
                 <LadoALado>
-                    <IMG src={lista} alt="lista rosa" />
-                    <Legenda>beneficios</Legenda>
+                    <IMG style={{marginLeft:"6px"}} src={lista} alt="lista rosa" />
+                    <Legenda style={{marginLeft:"6px"}}>beneficios</Legenda>
                 </LadoALado>
                 {info.perks.map((beneficios , index) => {
                     return(
-                        <Legenda>{index + 1}.{beneficios.title}</Legenda>
+                        <Legenda style={{marginLeft:"21px"}} >{index + 1}.{beneficios.title}</Legenda>
                     )
                 })}
                 <LadoALado style={{ marginTop: "12px" }}>
-                    <IMG src={dinheiro} alt="dinheiro" />
-                    <Legenda>Preço</Legenda>
+                    <IMG style={{marginLeft:"6px" ,marginBottom:"5%"}} src={dinheiro} alt="dinheiro" />
+                    <Legenda style={{marginLeft:"6px"}}>Preço</Legenda>
                 </LadoALado>
-                <Legenda>{info.price}cobrados mensalmente</Legenda>
+                <Legenda style={{marginLeft:"21px"}}>{info.price}cobrados mensalmente</Legenda>
 
             </Centralizar>
             <AfastarBorda>
@@ -111,7 +112,7 @@ function EnviarPlano(){
                         onChange={(e) => setCodigo(e.target.value)}
 
                     />
-                    <InputMenor
+                    <InputMenor style={{marginLeft:"9px"}}
                         placeholder="Validade"
                         value={validade}
                         onChange={(e) => setValidade(e.target.value)}

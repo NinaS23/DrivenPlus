@@ -34,7 +34,7 @@ export default function Subscription() {
     return (
         <>
 
-            <Titulo style={{color:"pink"}}>Escolha Seu Plano</Titulo>
+            <Titulo style={{color:" #ffffff"}}>Escolha Seu Plano</Titulo>
 
             {planos.map((element) => {
                 return (

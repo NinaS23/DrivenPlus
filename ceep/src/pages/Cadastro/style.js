@@ -27,7 +27,7 @@ border-radius: 8px;
 `
 const Legenda = styled.h5`
 margin:0 auto;
-margin-top:4%;
+margin-top:6%;
 color: #FFFFFF;
 `
 const Input = styled.input`

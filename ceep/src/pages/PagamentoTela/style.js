@@ -12,8 +12,8 @@ export{
     InputMenor,
     LadoALadoInput,
     Apertar,
-    Body,
-    Esconder
+    LogoTitle,
+    SetaImg
 }
 const CentroLogo= styled.div`
 display: flex;
@@ -29,8 +29,9 @@ height: auto;
 `
 
 const Logo = styled.img`
-width: 94px;
+width: 140px;
 height: auto;
+
 `
 
 const Centralizar = styled.div`
@@ -68,7 +69,7 @@ border-radius: 8px;
 
 `
 const InputMenor = styled.input`
-width: 149px;
+width: 145px;
 height: 52px;
 border-radius: 8px;
 border-style:none;
@@ -89,13 +90,17 @@ border-radius: 8px;
 margin-top: 12px;
 `
 
-const Body = styled.div`
-background: rgba(0, 0, 0, 0.7);
-background-color: #000000B2;
-height: 100vh;
-
-
+const LogoTitle = styled.h1`
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 38px;
+color: #FFFFFF;
 `
-const Esconder = styled.img`
-display: none;
+const SetaImg = styled.img`
+width: 28px;
+height: 27.29px;
+margin-left:22px;
+margin-top:5%;
 `

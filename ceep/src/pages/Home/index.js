@@ -1,12 +1,12 @@
-import { useContext , useState ,useEffect } from "react";
+import { useContext , useState} from "react";
 import UserContext from "../../contexts/context.js";
-import {useNavigate , useParams } from 'react-router-dom';
+import {useNavigate  } from 'react-router-dom';
 import { LogoSuperior, ImgUser, Separar, NomeUser, Clicar, Action, MeioScreen, FinalScreen } from "./style.js";
 import Logo1 from "../../assets/Group 1.png";
 import FotoUser from "../../assets/Vector.png"
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Navigate } from "react-router";
+
 
 export default function Home() {
     const [dados , setDados] = useState();

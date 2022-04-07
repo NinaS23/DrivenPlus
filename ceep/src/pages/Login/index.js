@@ -52,13 +52,13 @@ export default function TelaLogin() {
                         onChange={(e) => setSenha(e.target.value)}
                     />
 
-                    <Botao>
+                    <Botao style={{marginTop:"6%"}}>
                         <Apertar
                             clicar={"Entrar"} />
                     </Botao>
 
 
-                    <Link style={{ textDecoration: "none", color: "black" }} to={`/sign-up`}>
+                    <Link style={{ textDecoration: "none", color: "black" , marginTop:"3%" }} to={`/sign-up`}>
                         <Legenda>Não possuí uma conta? Cadastre-se</Legenda>
                     </Link>
             
