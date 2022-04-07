@@ -52,7 +52,7 @@ export default function TelaLogin() {
                         onChange={(e) => setSenha(e.target.value)}
                     />
 
-                    <Botao style={{marginTop: "5%"}}>
+                    <Botao>
                         <Apertar
                             clicar={"Entrar"} />
                     </Botao>

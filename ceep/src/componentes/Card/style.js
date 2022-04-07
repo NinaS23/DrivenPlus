@@ -15,7 +15,7 @@ border-radius: 12px;
 width: 290px;
 height: 180px;
 margin:0 auto;
-margin-top:14px;
+margin-top:10%;
 
 `
 const CardImg = styled.img`
@@ -27,4 +27,5 @@ height: 95px;
 const Valor = styled.p`
  margin-right: 16px;
  height: 26px;
+ color:#FFFFFF;
 `

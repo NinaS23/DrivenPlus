@@ -54,6 +54,7 @@ background: #FF4791;
 border-radius: 8px;
 width: 299px;
 height: 52px;
+margin-top:5px;
 
 `
 
@@ -72,6 +73,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+
 
 `
 

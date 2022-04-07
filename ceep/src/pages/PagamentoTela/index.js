@@ -1,12 +1,13 @@
 
-import { useState , useEffect, useContext } from "react";
-import { useParams } from 'react-router-dom';
+import { useState, useEffect, useContext } from "react";
+import { useParams , Link } from 'react-router-dom';
 import axios from "axios";
 import { CentroLogo, IMG, Logo, Centralizar, Legenda, LadoALado, Input, AfastarBorda, InputMenor, LadoALadoInput, Apertar, Body } from "./style.js";
-import logoVerde from "../../assets/Group 3.png"
+import logoVerde from "../../assets/Group 1.png"
 import lista from "../../assets/lista.png"
 import dinheiro from "../../assets/grana.png";
 import UserContext from "../../contexts/context.js";
+import Seta from "../../assets/setinha.png";
 
 export default function PagamentoTela() {
     const [nomeCard, setNomeCard] = useState("");
@@ -29,20 +30,25 @@ export default function PagamentoTela() {
 
     useEffect(() => {
 
+        const requisicao = axios.get(`https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions/memberships/${idPlano}`, config)
+        requisicao.then(Sucesso)
+        requisicao.catch(Fracasso)
 
-        const pegarDados = (`https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions/memberships/${idPlano}`,config)
-        pegarDados.then(resp => {
-            setInfo(setInfo(resp.data));
-        });
-        pegarDados.catch(err => console.log(err.resposta))
-    }, []);
-    function EnviarValue(e) {
-        e.preventDefault()
-    }
+        function Sucesso(resp) {
+            console.log(resp)
+            setInfo(resp.data)
+        }
+        function Fracasso(erro) {
+            console.log(erro)
+        }
+    }, [])
 
 
     return (
         <>
+            <Link to={`/subscriptions`}>
+                <Logo src={logoVerde} alt="letra D" />
+            </Link>
 
             <CentroLogo style={{ marginTop: "30%", marginBottom: "5%" }} >
                 <Logo src={logoVerde} alt="letra D" />

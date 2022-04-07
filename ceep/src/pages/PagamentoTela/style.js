@@ -41,7 +41,7 @@ margin-left: 5%;
 `
 
 const Legenda = styled.p`
-background-color: pink;
+color: #ffffff;
 
 `
 
