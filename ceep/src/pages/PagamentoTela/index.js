@@ -1,12 +1,11 @@
 
-import { useState } from "react";
+import { useState , useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom';
 import axios from "axios";
 import { CentroLogo, IMG, Logo, Centralizar, Legenda, LadoALado, Input, AfastarBorda, InputMenor, LadoALadoInput, Apertar, Body } from "./style.js";
 import logoVerde from "../../assets/Group 3.png"
 import lista from "../../assets/lista.png"
-import dinheiro from "../../assets/grana.png"
-import { useEffect } from "react/cjs/react.production.min";
+import dinheiro from "../../assets/grana.png";
 import UserContext from "../../contexts/context.js";
 
 export default function PagamentoTela() {

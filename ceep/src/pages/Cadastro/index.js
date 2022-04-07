@@ -65,14 +65,14 @@ export default function TelaCadastro() {
 
                 />
 
-                <Botao onClick={EnviarValue}>
+                <Botao  style={{marginTop: "5%"}} onClick={EnviarValue}>
                     <Apertar
 
                         clicar={"Cadastrar"}
                     />
                 </Botao>
                 <Link to={`/`}>
-                    <Legenda  style={{ textDecoration: "none", color: "black" }}>
+                    <Legenda  style={{ textDecoration: "none"}}>
                         Já possuí uma conta? Entre
                     </Legenda>
                 </Link>

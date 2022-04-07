@@ -6,6 +6,7 @@ import "./CSS/reset.css"
 import "./CSS/style.css"
 import Subscription from "./pages/subscription";
 import PagamentoTela from "./pages/PagamentoTela";
+import Home from "./pages/Home";
 
 export default function App() {
     return (
@@ -17,6 +18,7 @@ export default function App() {
                         <Route path="/sign-up" element={<TelaCadastro />} />
                         <Route path="/subscriptions" element={<Subscription />} />
                         <Route path="/subscription/:planoId" element={<PagamentoTela />} />
+                        <Route path="/home" element={<Home/>} />
                     </Routes>
                 </BrowserRouter>
             </AppProvider>

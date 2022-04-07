@@ -5,7 +5,8 @@ export {
     Titulo,
     Legenda,
     Botao,
-    Input
+    Input,
+    Container
 }
 
 const Inputs = styled.form`
@@ -16,19 +17,38 @@ const Inputs = styled.form`
    margin-top:50%;
 
 `
-const Titulo = styled.h1`
-margin-left:33%;
-margin-bottom:30%;
+const Titulo = styled.img`
+display: flex;
+justify-content: center;
+align-items: center;
+
 `
 const Legenda = styled.h5`
 margin:0 auto;
 margin-top:4%;
+color:#FFFFFF;
 
 `
 
 const Botao = styled.button`
-background-color:Pink;
+width: 298px;
+height: 52px;
+left: 38px;
+top: 427px;
+
+background: #FF4791;
+border-radius: 8px;
+
 `
 const Input = styled.input`
- width:200px;
+ width:299px;
+ height: 52px;
+ border-radius: 8px;
+ background: #FFFFFF;
+
+`
+
+const Container = styled.div`
+margin-top:30%;
+flex-direction: column;
 `

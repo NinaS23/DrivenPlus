@@ -17,13 +17,24 @@ const Inputs = styled.div`
 
 `
 const Botao = styled.button`
-background-color:Pink;
+width: 298px;
+height: 52px;
+left: 38px;
+top: 427px;
+
+background: #FF4791;
+border-radius: 8px;
 `
 const Legenda = styled.h5`
 margin:0 auto;
 margin-top:4%;
-
+color: #FFFFFF;
 `
 const Input = styled.input`
- width:200px;
+width:299px;
+ height: 52px;
+ border-radius: 8px;
+ background: #FFFFFF;
+ margin-top: 5px;
+
 `

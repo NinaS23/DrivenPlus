@@ -1,16 +1,17 @@
-import { useState , useContext} from "react"
+import { useState, useContext } from "react"
 import axios from "axios";
-import { Inputs, Titulo, Legenda, Botao, Input } from "./style.js";
-import { Link ,useNavigate } from "react-router-dom";
+import { Inputs, Titulo, Legenda, Botao, Input, Container } from "./style.js";
+import { Link, useNavigate } from "react-router-dom";
 /* import Input from "../../componentes/Inputs" */
 import Apertar from "../../componentes/Botao/index.js";
 import UserContext from "../../contexts/context.js";
+import LogoNome from "../../assets/LogoMaior.png"
 
 export default function TelaLogin() {
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
     const navigate = useNavigate();
-    const {setToken} = useContext(UserContext)
+    const { setToken } = useContext(UserContext)
     function EnviarValue(e) {
         e.preventDefault()
         const dados = {
@@ -32,33 +33,35 @@ export default function TelaLogin() {
         alert("email ou senha incorretos")
     }
     console.log(senha, email)
-    
+
 
     return (
         <>
             <Inputs onSubmit={EnviarValue}>
-                <Link to={`/subscriptions`}>
-                    <Titulo>DRIVEN</Titulo>
-                </Link>
-                <Input
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <Input
-                    placeholder="Senha"
-                    value={senha}
-                    onChange={(e) => setSenha(e.target.value)}
-                />
 
-                <Botao>
-                    <Apertar
-                        clicar={"Entrar"} />
-                </Botao>
+                <Titulo src={LogoNome} alt="logo Driven (letreiro)" />
+              
+                    <Input style={{marginTop: "30%"}}
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <Input style={{marginTop: "5px"}}
+                        placeholder="Senha"
+                        value={senha}
+                        onChange={(e) => setSenha(e.target.value)}
+                    />
 
-                <Link style={{ textDecoration: "none", color: "black" }} to={`/sign-up`}>
-                    <Legenda>Não possuí uma conta? Cadastre-se</Legenda>
-                </Link>
+                    <Botao style={{marginTop: "5%"}}>
+                        <Apertar
+                            clicar={"Entrar"} />
+                    </Botao>
+
+
+                    <Link style={{ textDecoration: "none", color: "black" }} to={`/sign-up`}>
+                        <Legenda>Não possuí uma conta? Cadastre-se</Legenda>
+                    </Link>
+            
             </Inputs>
         </>
     )
