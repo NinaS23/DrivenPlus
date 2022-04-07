@@ -4,6 +4,7 @@ import { LogoSuperior, ImgUser, Separar, NomeUser, Clicar, Action, MeioScreen, F
 import Logo1 from "../../assets/Group 1.png";
 import FotoUser from "../../assets/Vector.png"
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Home() {
     const { token } = useContext(UserContext)
@@ -14,12 +15,8 @@ export default function Home() {
         }
     }
     function Deletar() {
-        fetch('https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions', {
-            method: 'DELETE',
-
-        });
+       axios.delete("https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions",config)
     }
-
 
     return (
         <>

@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useContext } from "react";
-import { useParams , Link } from 'react-router-dom';
+import { useParams , Link , useNavigate} from 'react-router-dom';
 import axios from "axios";
 import { CentroLogo, IMG, Logo, Centralizar, Legenda, LadoALado, Input, AfastarBorda, InputMenor, LadoALadoInput, Apertar, Body } from "./style.js";
 import logoVerde from "../../assets/Group 1.png"
@@ -15,7 +15,8 @@ export default function PagamentoTela() {
     const [codigo, setCodigo] = useState("");
     const [validade, setValidade] = useState("");
     const [aparecer, setAparecer] = useState(false)
-    const [info, setInfo] = useState([]);
+    const [info, setInfo] = useState();
+    const navigate = useNavigate();
 
     const { token } = useContext(UserContext)
     console.log(token)
@@ -35,36 +36,62 @@ export default function PagamentoTela() {
         requisicao.catch(Fracasso)
 
         function Sucesso(resp) {
-            console.log(resp)
+            console.log(resp.data)
             setInfo(resp.data)
+            
         }
         function Fracasso(erro) {
             console.log(erro)
         }
     }, [])
 
+    
+   
+function EnviarPlano(){
+    const enviarDados = axios.post("https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions" ,  {
+        membershipId: info.id,
+        cardName: nomeCard,
+        cardNumber: digitos,
+        securityNumber: codigo,
+        expirationDate: validade
+    } , config)
+     enviarDados.then(Sucesso)
+     enviarDados.catch(Fracasso)
 
+     function Sucesso(resposta){
+         console.log(resposta.data)
+         navigate("/home")
+     }
+     function Fracasso(erro){
+          console.log(erro)
+     }
+    }
+    if(!info){ console.log(info) 
+        return(<></>)}
     return (
         <>
             <Link to={`/subscriptions`}>
-                <Logo src={logoVerde} alt="letra D" />
+                <Logo src={Seta} alt="letra D" />
             </Link>
 
             <CentroLogo style={{ marginTop: "30%", marginBottom: "5%" }} >
-                <Logo src={logoVerde} alt="letra D" />
+                <Logo src={info.image} alt="letra D" />
             </CentroLogo>
             <Centralizar>
                 <LadoALado>
                     <IMG src={lista} alt="lista rosa" />
                     <Legenda>beneficios</Legenda>
                 </LadoALado>
-                <Legenda>1.Brindes exclusivos</Legenda>
-                <Legenda>2.Materiais bônus de web</Legenda>
+                {info.perks.map((beneficios , index) => {
+                    return(
+                        <Legenda>{index + 1}.{beneficios.title}</Legenda>
+                    )
+                })}
                 <LadoALado style={{ marginTop: "12px" }}>
                     <IMG src={dinheiro} alt="dinheiro" />
                     <Legenda>Preço</Legenda>
                 </LadoALado>
-                <Legenda>R$ 39,99 cobrados mensalmente</Legenda>
+                <Legenda>{info.price}cobrados mensalmente</Legenda>
 
             </Centralizar>
             <AfastarBorda>
@@ -91,7 +118,7 @@ export default function PagamentoTela() {
                         onChange={(e) => setValidade(e.target.value)}
                     />
                 </LadoALadoInput>
-                <Apertar onClick={() => setAparecer(true)} >
+                <Apertar onClick={EnviarPlano}>
                     <Legenda>Assinar</Legenda>
                 </Apertar>
 
@@ -105,5 +132,8 @@ export default function PagamentoTela() {
 
 }
 
-
+/* 
+1- beneficios , estão em info.perks 
+2-inf.perks.map
+*/
 
