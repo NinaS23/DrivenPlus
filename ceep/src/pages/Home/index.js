@@ -1,13 +1,19 @@
-import { useContext } from "react";
+import { useContext , useState ,useEffect } from "react";
 import UserContext from "../../contexts/context.js";
+import {useNavigate , useParams } from 'react-router-dom';
 import { LogoSuperior, ImgUser, Separar, NomeUser, Clicar, Action, MeioScreen, FinalScreen } from "./style.js";
 import Logo1 from "../../assets/Group 1.png";
 import FotoUser from "../../assets/Vector.png"
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Navigate } from "react-router";
 
 export default function Home() {
+    const [dados , setDados] = useState();
+    const navigate = useNavigate()
     const { token } = useContext(UserContext)
+    
+
     console.log(token)
     const config = {
         headers: {
@@ -15,8 +21,20 @@ export default function Home() {
         }
     }
     function Deletar() {
-       axios.delete("https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions",config)
+     const deletado =  axios.delete("https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions",config)
+          deletado.then(Sucesso)
+          deletado.catch(Fracasso)
+          
+          function Sucesso(resp){
+              navigate("/subscriptions")
+             
+          }
+          function Fracasso(err){
+              console.log(err)
+          }
     }
+
+
 
     return (
         <>
@@ -26,10 +44,11 @@ export default function Home() {
             </Separar>
             <NomeUser>OLA,ANA</NomeUser>
             <MeioScreen>
-                <Clicar style={{ marginTop: "53px" }}><Action>Solicitar brindes</Action></Clicar>
-                <Clicar><Action>Materiais bônus de web</Action></Clicar>
-                <Clicar><Action>Aulas bônus de tech</Action></Clicar>
-                <Clicar><Action>Mentorias personalizadas</Action></Clicar>
+               {dados.perks.map((e)=>{
+                   return(
+                    <Clicar><Action>{e.title}</Action></Clicar>
+                   )
+               })}
                 <FinalScreen>
                     <Link to={"/subscriptions"} >
                         <Clicar><Action>Mudar plano</Action></Clicar>
@@ -41,3 +60,4 @@ export default function Home() {
     )
 }
 
+//<Clicar><Action>Mentorias personalizadas</Action></Clicar>

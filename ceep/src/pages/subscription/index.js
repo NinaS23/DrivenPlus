@@ -33,9 +33,9 @@ export default function Subscription() {
     console.log(planos)
     return (
         <>
-            <Link to={`/home`} >
-                <Titulo>Escolha Seu Plano</Titulo>
-            </Link>
+
+            <Titulo style={{color:"pink"}}>Escolha Seu Plano</Titulo>
+
             {planos.map((element) => {
                 return (
                     <Link to={`/subscription/${element.id}`} >

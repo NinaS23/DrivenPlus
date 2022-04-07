@@ -14,7 +14,6 @@ export default function PagamentoTela() {
     const [digitos, setDigitos] = useState("");
     const [codigo, setCodigo] = useState("");
     const [validade, setValidade] = useState("");
-    const [aparecer, setAparecer] = useState(false)
     const [info, setInfo] = useState();
     const navigate = useNavigate();
 
