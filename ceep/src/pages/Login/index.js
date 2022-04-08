@@ -27,13 +27,13 @@ export default function TelaLogin() {
     function Sucesso(resposta) {
         console.log(resposta.data)
        setLogin(resposta.data.membership)
-        if(resposta.data.membership == "null"){
-            navigate('/subscriptions');
-        }else{
+
+        if(login != "null" ){
             navigate('/home');
+        }else{
+            navigate('/subscriptions');
         }
-        console.log(resposta.data.membership)
-        setToken(resposta.data.token)
+         setToken(resposta.data.token)
 
     }
     function Fracasso(err) {
