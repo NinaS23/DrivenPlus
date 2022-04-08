@@ -13,7 +13,10 @@ export{
     LadoALadoInput,
     Apertar,
     LogoTitle,
-    SetaImg
+    SetaImg,
+    Container,
+   Letra,
+   Opaco
 }
 const CentroLogo= styled.div`
 display: flex;
@@ -103,4 +106,35 @@ width: 28px;
 height: 27.29px;
 margin-left:22px;
 margin-top:5%;
+`
+
+const Container =styled.div`
+width:248px;
+height:210px;
+background-color: #FFFFFF;
+border-radius: 12px;
+display: flex;
+margin: 0 auto;
+padding-top:20%;
+padding-left:5%;
+margin-top:50%;
+flex-direction: column;
+position: absolute;
+`
+
+const Letra = styled.h2`
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 21px;
+text-align: center;
+
+color: #000000;
+`
+
+const Opaco = styled.div`
+opacity: 1;
+background-color: #000000B2;
+
 `
