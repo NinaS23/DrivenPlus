@@ -42,7 +42,7 @@ export default function Home() {
                 <LogoSuperior src={Logo1} alt="lista rosa" />
                 <ImgUser src={FotoUser} alt="fot de usuário" />
             </Separar>
-            <NomeUser>{dados.NomeUser}</NomeUser>
+            <NomeUser>{dados.CardName}</NomeUser>
             <MeioScreen>
                {dados.perks.map((e)=>{
                    return(
