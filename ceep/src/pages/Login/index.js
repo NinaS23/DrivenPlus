@@ -10,6 +10,7 @@ import LogoNome from "../../assets/LogoMaior.png"
 export default function TelaLogin() {
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
+    const [login , setLogin] = useState("")
     const navigate = useNavigate();
     const { setToken } = useContext(UserContext)
     function EnviarValue(e) {
@@ -25,7 +26,13 @@ export default function TelaLogin() {
     }
     function Sucesso(resposta) {
         console.log(resposta.data)
-        navigate('/subscriptions');
+        setLogin(resposta.data.membership)
+        if(login === null){
+            navigate('/subscriptions');
+        }else{
+            navigate('/home');
+        }
+     
         setToken(resposta.data.token)
 
     }
