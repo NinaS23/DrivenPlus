@@ -26,20 +26,20 @@ export default function TelaLogin() {
     }
     function Sucesso(resposta) {
         console.log(resposta.data)
-        setLogin(resposta.data.membership)
-        if(login === null){
+       setLogin(resposta.data.membership)
+        if(resposta.data.membership == "null"){
             navigate('/subscriptions');
         }else{
             navigate('/home');
         }
-     
+        console.log(resposta.data.membership)
         setToken(resposta.data.token)
 
     }
     function Fracasso(err) {
         alert("email ou senha incorretos")
     }
-    console.log(senha, email)
+    console.log(senha, email,login)
 
 
     return (
